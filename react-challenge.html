@@ -29,7 +29,8 @@
         }
 
         nextMood = () => {
-          if(currentMood === moods.length - 1){
+          let currentMood = this.state.currentMood
+          if(this.state.currentMood === this.state.moods.length - 1){
             this.setState({ currentMood: currentMood = 0 })
           } else {
             this.setState({ currentMood: currentMood + 1 })
@@ -67,15 +68,17 @@
       class MoodMeter extends React.Component{
         render(){
           return(
+          <>
               <h3>Mood Options:</h3>
               <p style={{fontSize: "40px"}}>{ this.props.moodOptions }</p>
-              <button onClick={ }>Click Here For Next Mood Option</button>
+              <button onClick={ this.props.next}>Click Here For Next Mood Option</button>
               <br />
               <br />
               <h3>Save your mood here!</h3>
               <button onClick={ this.props.setThisMood }>Yup, this is me right now.</button>
               <h3>My mood:</h3>
               <p style={{fontSize: "40px"}}>{ this.props.set }</p>
+          </>
           )
         }
       }
